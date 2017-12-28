@@ -24,7 +24,7 @@ let result = [];
 let allResults = [];
 let counderID = 0;
 let startPoint = { 
-	x: 5,
+	x: 2,
 	y: 0
 };
 
@@ -35,14 +35,14 @@ function getMatrix() {
 	// return chunk(result, 8);
 	
 	return [
-	[1, -1, 1, 1, 1, 2, 1, 1],
-	[1, 2, 2, 1, 2, 1, 1, 1],
-	[1, 1, -1, 1, 1, -1, 1, 1],
-	[2, 1, 1, 1, 2, 1, 1, -1],
-	[2, -1, 1, 1, 1, -1, 2, 1],
-	[0, 1, 1, 1, 1, 2, 1, 1],
-	[-1, 1, 1, 1, 1, -1, 1, 1],
-	[1, 1, -1, 1, 1, 1, 1, 1]
+		[1, 1, "x", 1, 1, 1, 2, 1],
+	    ["x", 1, 1, 1, 1, 1, 1, 1],
+	    [0, 1, 1, 1, 1, "x", 2, "x"],
+	    [1, 2, "x", 1, 1, 1, 1, 1],
+	    [2, 1, 1, 2, 1, 1, 1, 2],
+	    [2, "x", 1, 1, 1, "x", 1, 1],
+	    [1, 1, 2, "x", 2, 1, 1, 1],
+	    [1, 1, 1, 1, 1, "x", 1, 1]
 	]
 }
 
@@ -96,17 +96,20 @@ function helper() {
 		if(stepNumber < STEPS_NUMBER) {
 
 
+
+
+
 			let newRout = itin.route.slice();
-			if(newRout[0] == 'RIGHT'){
-				if(newRout[1] == 'DOWN'){
-					if(newRout[2] == 'LEFT'){
-						if(newRout[3] == 'UP'){
-							if(newRout[4] == 'RIGHT'){
-								if(newRout[5] == 'LEFT'){
-									if(newRout[6] == 'DOWN'){
-										if(newRout[7] == 'RIGHT'){
-											if(newRout[8] == 'LEFT'){
-												alert(1);
+			if(newRout[0] == 'DOWN'){
+				if(true){
+					if(true){
+						if(true){
+							if(true){
+								if(true){
+									if(true){
+										if(true){
+											if(true){
+												console.log(itin.route, itin.count);
 											}
 										}
 									}
@@ -116,6 +119,9 @@ function helper() {
 					}
 				}
 			}
+
+
+			
 
 
 
@@ -177,7 +183,6 @@ function getMatrixDOM() {
 
 var t = new itinerary(getMatrix(), startPoint, 0, [], 0);
 itinStack.push(t);
-helper();
 
 function convertMatrixItem(element) {
 	switch(element) {
@@ -185,10 +190,10 @@ function convertMatrixItem(element) {
 	        return 2;
 	    case 'i45-snowdrift':
 	        return 1;
-	        case 'i45-clean':
+	    case 'i45-clean':
 	        return 0;
 	    case 'i45-ice':
-	        return -1;
+	        return 'x';
 	}
 }
 
