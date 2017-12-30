@@ -24,26 +24,17 @@ let result = [];
 let allResults = [];
 let counderID = 0;
 let startPoint = { 
-	x: 2,
+	x: 4,
 	y: 0
 };
 
+startPoint.x = parseInt(document.getElementsByClassName('i45-clean')[0].parentNode.getAttribute('data-row'));
+
 function getMatrix() {
-	// let result = [];
-	// let domElements = document.querySelectorAll('.snowclean-cell .g45-snow:not(.i45-player)');
-	// domElements.forEach(function(item){result.push(convertMatrixItem(item.classList[1]))});
-	// return chunk(result, 8);
-	
-	return [
-		[1, 1, "x", 1, 1, 1, 2, 1],
-	    ["x", 1, 1, 1, 1, 1, 1, 1],
-	    [0, 1, 1, 1, 1, "x", 2, "x"],
-	    [1, 2, "x", 1, 1, 1, 1, 1],
-	    [2, 1, 1, 2, 1, 1, 1, 2],
-	    [2, "x", 1, 1, 1, "x", 1, 1],
-	    [1, 1, 2, "x", 2, 1, 1, 1],
-	    [1, 1, 1, 1, 1, "x", 1, 1]
-	]
+	let result = [];
+	let domElements = document.querySelectorAll('.snowclean-cell .g45-snow:not(.i45-player)');
+	domElements.forEach(function(item){result.push(convertMatrixItem(item.classList[1]))});
+	return chunk(result, 8);
 }
 
 Array.prototype.cloneArr = function() {
@@ -94,36 +85,6 @@ function helper() {
 		var matrix = itin.matrix.slice().cloneArr();
 		var position = itin.position;
 		if(stepNumber < STEPS_NUMBER) {
-
-
-
-
-
-			let newRout = itin.route.slice();
-			if(newRout[0] == 'DOWN'){
-				if(true){
-					if(true){
-						if(true){
-							if(true){
-								if(true){
-									if(true){
-										if(true){
-											if(true){
-												console.log(itin.route, itin.count);
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-
-
-			
-
-
 
 			const directions = getDirections(position, matrix);
 			for(var i = 0; i < directions.length; i++) {
